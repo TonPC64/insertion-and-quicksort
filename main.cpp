@@ -1,19 +1,18 @@
 #include <iomanip>
 #include <iostream>
 #include <string>
-#include <stdlib.h>
-#include <time.h>
-#include <sys/time.h>
 #include <conio.h>
+#include <windows.h>
 #include "quick_sort.h"
 
 using namespace std;
 bool flag=true; 
 
 long long getCurrentMiliSec() {
-	struct timeval tp;
-    gettimeofday(&tp, NULL);
-    long long mslong = (long long) tp.tv_sec * 1000L + tp.tv_usec / 1000;
+	SYSTEMTIME stime;
+	GetLocalTime(&stime);
+	
+    long long mslong = (stime.wSecond*1000) + stime.wMilliseconds;
     return mslong;
 }
 
@@ -24,14 +23,13 @@ double runningTime(long long start, long long end) {
 }
 
 int main() {
-	srand (time(NULL));
 	vector<int> original;
 	vector<int> cloningData;
 	string choice;
 	bool exit = true;
-	bool create = false;
-//	int myints[] = {22, 2, 13, 56, 5, 32, 7, 89, 56, 99};
-//	original.assign(myints, myints+10);
+	bool create = true;
+	int myints[] = {22, 2, 13, 56, 5, 32, 7, 89, 56, 99};
+	original.assign(myints, myints+10);
 
 	long long startTime;
 	long long endTime;
