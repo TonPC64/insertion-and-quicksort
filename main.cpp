@@ -27,9 +27,9 @@ int main() {
 	vector<int> cloningData;
 	string choice;
 	bool exit = true;
-	bool create = true;
-	int myints[] = {22, 2, 13, 56, 5, 32, 7, 89, 56, 99};
-	original.assign(myints, myints+10);
+	bool create = false;
+	// int myints[] = {22, 2, 13, 56, 5, 32, 7, 89, 56, 99};
+	// original.assign(myints, myints+10);
 
 	long long startTime;
 	long long endTime;
